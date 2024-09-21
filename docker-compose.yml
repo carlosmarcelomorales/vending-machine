@@ -25,6 +25,7 @@ services:
 
   mysqldb:
     image: mysql:${MYSQL_VERSION}
+    platform: linux/amd64
     container_name: ${MYSQL_HOST}
     restart: always
     env_file:
