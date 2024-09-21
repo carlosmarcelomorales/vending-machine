@@ -28,7 +28,7 @@ remove:
 
 ##    interactive: runs a container with an interactive shell
 interactive:
-	-@docker-compose exec http /bin/bash
+	-@docker-compose exec php-fpm bash
 
 ## test: runs a container and execute the tests
 test:
