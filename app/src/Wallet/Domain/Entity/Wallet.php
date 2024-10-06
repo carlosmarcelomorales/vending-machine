@@ -28,4 +28,9 @@ class Wallet
         return $this->walletId;
     }
 
+    public function totalAmount(): float
+    {
+        return $this->balance->amount();
+    }
+
 }

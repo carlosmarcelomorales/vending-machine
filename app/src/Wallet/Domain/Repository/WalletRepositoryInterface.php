@@ -8,4 +8,5 @@ use App\Wallet\Domain\ValueObject\WalletId;
 interface WalletRepositoryInterface
 {
     public function findById(WalletId $walletId): ?Wallet;
+    public function create(Wallet $wallet): Wallet;
 }

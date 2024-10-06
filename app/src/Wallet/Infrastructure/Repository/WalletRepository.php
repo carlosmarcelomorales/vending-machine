@@ -4,6 +4,7 @@ namespace App\Wallet\Infrastructure\Repository;
 
 use App\Shared\Infrastructure\Database\DatabaseConnectionService;
 use App\Wallet\Domain\Entity\Wallet;
+use App\Wallet\Domain\Exception\WalletNotFoundException;
 use App\Wallet\Domain\Repository\WalletRepositoryInterface;
 use App\Wallet\Domain\ValueObject\Balance;
 use App\Wallet\Domain\ValueObject\WalletId;
@@ -18,6 +19,9 @@ class WalletRepository implements WalletRepositoryInterface
         $this->dbConnectionService = $dbConnectionService;
     }
 
+    /**
+     * @throws WalletNotFoundException
+     */
     public function findById(WalletId $walletId): ?Wallet
     {
         $pdo = $this->dbConnectionService->getConnection();
@@ -27,12 +31,25 @@ class WalletRepository implements WalletRepositoryInterface
         $data = $stmt->fetch();
 
         if (!$data) {
-            return null;
+            throw new WalletNotFoundException($walletId);
         }
 
         return new Wallet(
             new WalletId($data['wallet_id']),
             new Balance($data['balance'])
         );
+    }
+
+    public function create(Wallet $wallet): Wallet
+    {
+        $pdo = $this->dbConnectionService->getConnection();
+        $stmt = $pdo->prepare('INSERT INTO wallets (wallet_id, balance) VALUES (:wallet_id, :balance)');
+
+        $stmt->execute([
+            'wallet_id' => (string)$wallet->walletId(),
+            'balance' => $wallet->totalAmount()
+        ]);
+
+        return $wallet;
     }
 }

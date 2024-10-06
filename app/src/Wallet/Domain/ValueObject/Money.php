@@ -2,7 +2,7 @@
 
 namespace App\Wallet\Domain\ValueObject;
 
-use InvalidArgumentException;
+use App\Wallet\Domain\Exception\InvalidMoneyAmountException;
 
 class Money
 {
@@ -11,7 +11,7 @@ class Money
     public function __construct(float $amount)
     {
         if ($amount < 0) {
-            throw new InvalidArgumentException('Amount cannot be negative.');
+            throw new InvalidMoneyAmountException('Amount cannot be negative.');
         }
         $this->amount = $amount;
     }
