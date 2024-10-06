@@ -6,7 +6,7 @@ services:
       - "./mysite.conf:/etc/nginx/conf.d/000_site.conf"
       - "./app:/code"
     ports:
-      - "80:80"
+      - "8000:80"
     command: /bin/bash -c "cat /etc/nginx/conf.d/000_site.conf > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
     depends_on:
       - php-fpm

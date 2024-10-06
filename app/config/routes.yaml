@@ -1,5 +1,4 @@
-controllers:
-    resource:
-        path: ../src/Controller/
-        namespace: App\Controller
-    type: attribute
+InsertMoney:
+    path: /insert-money
+    controller: App\Money\Infrastructure\Controller\MoneyController::insertMoney
+    methods: POST
