@@ -11,7 +11,7 @@ class Wallet
     private WalletId $walletId;
     private Balance $balance;
 
-    private function __construct(WalletId $walletId, Balance $balance) {
+    public function __construct(WalletId $walletId, Balance $balance) {
         $this->walletId = $walletId;
         $this->balance = $balance;
     }

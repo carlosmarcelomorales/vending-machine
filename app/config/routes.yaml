@@ -1,4 +1,4 @@
 InsertMoney:
-    path: /insert-money
-    controller: App\Money\Infrastructure\Controller\MoneyController::insertMoney
+    path: /add-money
+    controller: App\Wallet\Infrastructure\Controller\WalletController::addMoney
     methods: POST
