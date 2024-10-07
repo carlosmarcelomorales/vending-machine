@@ -33,4 +33,8 @@ class Wallet
         return $this->balance->amount();
     }
 
+    public function withdraw():  Wallet
+    {
+        return new self($this->walletId(), new Balance(0));
+    }
 }

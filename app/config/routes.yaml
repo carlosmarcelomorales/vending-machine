@@ -1,4 +1,9 @@
-InsertMoney:
+AddMoney:
     path: /add-money
-    controller: App\Wallet\Infrastructure\Controller\WalletController::addMoney
+    controller: App\Wallet\Infrastructure\Controller\WalletAddMoneyController::addMoney
+    methods: POST
+
+RefundMoney:
+    path: /refund-money
+    controller: App\Wallet\Infrastructure\Controller\WalletRefundMoneyController::refundMoney
     methods: POST

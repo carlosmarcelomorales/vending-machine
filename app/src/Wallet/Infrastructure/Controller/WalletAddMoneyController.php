@@ -14,7 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class WalletController extends AbstractController
+class WalletAddMoneyController extends AbstractController
 {
 
     private AddMoneyUseCase $addMoneyUseCase;
@@ -72,12 +72,11 @@ class WalletController extends AbstractController
         }
     }
 
-
     /**
      * @param Wallet $wallet
      * @return Response
      */
-    public function getResponseCreated(Wallet $wallet): Response
+    private function getResponseCreated(Wallet $wallet): Response
     {
         return new Response(
             json_encode([
@@ -89,6 +88,5 @@ class WalletController extends AbstractController
             ['Content-Type' => 'application/json']
         );
     }
-
 
 }
