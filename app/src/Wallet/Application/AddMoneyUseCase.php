@@ -3,14 +3,14 @@
 namespace App\Wallet\Application;
 
 use App\Wallet\Domain\Entity\Wallet;
+use App\Wallet\Domain\Repository\WalletRepositoryInterface;
 use App\Wallet\Domain\ValueObject\Money;
-use App\Wallet\Infrastructure\Repository\WalletRepository;
 
 class AddMoneyUseCase
 {
-    private WalletRepository $walletRepository;
+    private WalletRepositoryInterface $walletRepository;
 
-    public function __construct(WalletRepository $walletRepository)
+    public function __construct(WalletRepositoryInterface $walletRepository)
     {
         $this->walletRepository = $walletRepository;
     }

@@ -41,7 +41,6 @@ class WalletController extends AbstractController
             return new Response($e->getMessage(), Response::HTTP_BAD_REQUEST);
         }
 
-
         $walletId = $request->request->get('walletId');
         try {
             $wallet = $this->getWallet($walletId, $amount);
