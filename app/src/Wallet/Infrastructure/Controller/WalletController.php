@@ -50,16 +50,11 @@ class WalletController extends AbstractController
         }
 
         if (is_null($walletId)) {
-            return new Response(
-                json_encode([
-                    'status' => 'created',
-                    'walletId' => (string)$wallet->walletId(),
-                    'balance' => $wallet->totalAmount()
-                ]),
-                Response::HTTP_CREATED,
-                ['Content-Type' => 'application/json']
-            );
+            return $this->getResponseCreated($wallet);
         }
+
+        ($this->addMoneyUseCase)($wallet, $amount);
+        return $this->getResponseCreated($wallet);
 
     }
 
@@ -76,6 +71,24 @@ class WalletController extends AbstractController
         if (!$request->request->has('amount')) {
             throw new InvalidMoneyAmountException('Amount is required.');
         }
+    }
+
+
+    /**
+     * @param Wallet $wallet
+     * @return Response
+     */
+    public function getResponseCreated(Wallet $wallet): Response
+    {
+        return new Response(
+            json_encode([
+                'status' => 'created',
+                'walletId' => (string)$wallet->walletId(),
+                'balance' => number_format($wallet->totalAmount(),2)
+            ]),
+            Response::HTTP_CREATED,
+            ['Content-Type' => 'application/json']
+        );
     }
 
 

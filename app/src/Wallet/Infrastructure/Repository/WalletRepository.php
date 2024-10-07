@@ -52,4 +52,14 @@ class WalletRepository implements WalletRepositoryInterface
 
         return $wallet;
     }
+
+    public function update(Wallet $wallet): void
+    {
+        $pdo = $this->dbConnectionService->getConnection();
+        $stmt = $pdo->prepare('UPDATE wallets SET balance = :balance WHERE wallet_id = :wallet_id');
+        $stmt->execute([
+            'balance' => $wallet->totalAmount(),
+            'wallet_id' => (string)$wallet->walletId(),
+        ]);
+    }
 }
