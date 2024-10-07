@@ -41,6 +41,7 @@ class WalletController extends AbstractController
             return new Response($e->getMessage(), Response::HTTP_BAD_REQUEST);
         }
 
+
         $walletId = $request->request->get('walletId');
         try {
             $wallet = $this->getWallet($walletId, $amount);
@@ -48,7 +49,18 @@ class WalletController extends AbstractController
             return new Response($exception->getMessage(), Response::HTTP_BAD_REQUEST);
         }
 
-        dd($wallet);
+        if (is_null($walletId)) {
+            return new Response(
+                json_encode([
+                    'status' => 'created',
+                    'walletId' => (string)$wallet->walletId(),
+                    'balance' => $wallet->totalAmount()
+                ]),
+                Response::HTTP_CREATED,
+                ['Content-Type' => 'application/json']
+            );
+        }
+
     }
 
     private function getWallet(?string $walletId, Money $money): Wallet
