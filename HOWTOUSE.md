@@ -13,7 +13,10 @@ is running:
 > docker compose ps
 
 This should have the containers running and also should have created a database named vending_machine with 2 tables: 
-Items(item_id, name, stock, price) and Wallets(wallet_id, balance).
+Items(item_id, name, stock, price) and Wallets(wallet_id, balance). 
+
+NOTE: It will create the database only if you don't have the folder /code. Which you don't have by default, since it's
+created when you start the project for the first time.
 
 Thanks to the Makefile we can use a sort of commands in an easy way. To start and stop the docker we will use
 
