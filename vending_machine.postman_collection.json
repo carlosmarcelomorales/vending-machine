@@ -1,0 +1,106 @@
+{
+	"info": {
+		"_postman_id": "2e082738-26d9-4d39-b14e-dbc2e5aeae78",
+		"name": "vending_machine",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "35170909"
+	},
+	"item": [
+		{
+			"name": "Add Money",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "walletId",
+							"value": "fb6b13fc-1831-434e-b493-969eda40c631",
+							"type": "text"
+						},
+						{
+							"key": "amount",
+							"value": "0.25",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:8000/add-money"
+			},
+			"response": []
+		},
+		{
+			"name": "Refund Money",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "walletId",
+							"value": "fb6b13fc-1831-434e-b493-969eda40c631",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:8000/refund-money"
+			},
+			"response": []
+		},
+		{
+			"name": "Sell Item",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/sell-item?walletId=fb6b13fc-1831-434e-b493-969eda40c631&item=Water",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"sell-item"
+					],
+					"query": [
+						{
+							"key": "walletId",
+							"value": "fb6b13fc-1831-434e-b493-969eda40c631"
+						},
+						{
+							"key": "item",
+							"value": "Water"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Stock",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "itemId",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "amount",
+							"value": "4",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:8000/add-stock"
+			},
+			"response": []
+		}
+	]
+}

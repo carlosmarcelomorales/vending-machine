@@ -4,6 +4,10 @@ CREATE TABLE IF NOT EXISTS `wallets` (
     PRIMARY KEY (`wallet_id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+INSERT INTO `wallets` (`wallet_id`, `balance`)
+VALUES
+    ('fb6b13fc-1831-434e-b493-969eda40c631', 5.00);
+
 CREATE TABLE IF NOT EXISTS `items` (
                                        `item_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
     `name` varchar(20) NOT NULL DEFAULT '',
@@ -18,3 +22,5 @@ VALUES
     (2, 'Juice', 1.00, 10),
     (3, 'Soda', 1.50, 10)
     ON DUPLICATE KEY UPDATE `name` = VALUES(`name`), `price` = VALUES(`price`), `stock` = VALUES(`stock`);
+
+
