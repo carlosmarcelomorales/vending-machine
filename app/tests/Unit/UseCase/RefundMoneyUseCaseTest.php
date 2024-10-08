@@ -1,6 +1,6 @@
 <?php
 
-namespace Unit;
+namespace Unit\UseCase;
 
 use App\Wallet\Application\RefundMoneyUseCase;
 use App\Wallet\Domain\Entity\Wallet;

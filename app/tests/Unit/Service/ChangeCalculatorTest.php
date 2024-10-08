@@ -1,6 +1,6 @@
 <?php
 
-namespace Unit;
+namespace Unit\Service;
 
 use App\Wallet\Domain\Service\ChangeCalculator;
 use PHPUnit\Framework\TestCase;
