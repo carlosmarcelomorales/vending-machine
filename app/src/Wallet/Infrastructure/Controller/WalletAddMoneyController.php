@@ -52,7 +52,12 @@ class WalletAddMoneyController extends AbstractController
             return $this->getResponseCreated($wallet);
         }
 
-        ($this->addMoneyUseCase)($wallet, $amount);
+        try {
+            ($this->addMoneyUseCase)($wallet, $amount);
+        } catch (\Exception $e) {
+            return new Response('An error occurred: ' . $e->getMessage(), Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+
         return $this->getResponseCreated($wallet);
 
     }

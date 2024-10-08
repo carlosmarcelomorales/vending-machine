@@ -48,9 +48,10 @@ class WalletRefundMoneyController extends AbstractController
                 ['Content-Type' => 'application/json']
             );
 
-        } catch (NoFundsAvailableToRefundException $exception)
-        {
+        } catch (NoFundsAvailableToRefundException $exception) {
             return new Response($exception->getMessage(), Response::HTTP_CONFLICT);
+        } catch (\Exception $e) {
+            return new Response('An error occurred: ' . $e->getMessage(), Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
 }
