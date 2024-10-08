@@ -1,6 +1,8 @@
 # Senior Backend Engineer challenge
 ## Vending Machine
 
+### Instructions of how to use in HOWTOUSE.md
+
 The goal of this program is to model a vending machine and the state it must maintain during its operation. How exactly the actions on the machine are driven is left intentionally vague and is up to the candidate
 
 The machine works like all vending machines: it takes money then gives you items. The vending machine accepts money in the form of 0.05, 0.10, 0.25 and 1
