@@ -10,5 +10,10 @@ RefundMoney:
 
 SellItem:
     path: /sell-item
-    controller: App\VendingMachine\Infrastructure\Controller\VendingMachineController::sellItem
+    controller: App\VendingMachine\Infrastructure\Controller\VendingMachineSellItemController::sellItem
     methods: GET
+
+AddStock:
+    path: /add-stock
+    controller: App\VendingMachine\Infrastructure\Controller\VendingMachineAddStockController::addStock
+    methods: POST

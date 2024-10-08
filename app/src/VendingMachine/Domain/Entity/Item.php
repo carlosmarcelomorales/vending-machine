@@ -55,7 +55,14 @@ class Item
     public function reduceStock(): Item
     {
         $newStock = $this->stock->reduce(1);
-        return new self($this->id(), $this->name, $this->price, $newStock);
 
+        return new self($this->id(), $this->name, $this->price, $newStock);
+    }
+
+    public function addStock(int $amount): Item
+    {
+        $newStock = $this->stock->add($amount);
+
+        return new self($this->id(), $this->name, $this->price, $newStock);
     }
 }

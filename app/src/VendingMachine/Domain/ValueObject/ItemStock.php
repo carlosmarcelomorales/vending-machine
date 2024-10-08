@@ -31,4 +31,11 @@ class ItemStock
 
         return new self($newStock);
     }
+
+    public function add(int $amount): ItemStock
+    {
+        $newStock = $this->stock + $amount;
+
+        return new self($newStock);
+    }
 }

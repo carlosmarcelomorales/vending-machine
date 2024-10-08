@@ -28,7 +28,7 @@ services:
         autowire: false
         autoconfigure: false
 
-    App\VendingMachine\Infrastructure\Controller\VendingMachineController:
+    App\VendingMachine\Infrastructure\Controller\VendingMachineSellItemController:
         tags: [ 'controller.service_arguments' ]
         public: true
 
