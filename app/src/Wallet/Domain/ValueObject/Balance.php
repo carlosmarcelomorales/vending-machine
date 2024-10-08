@@ -22,9 +22,10 @@ class Balance
         return new self($this->amount + $money->amount());
     }
 
-    public function subtract(Money $money): Balance
+    public function subtract(float $amount): Balance
     {
-        $newAmount = $this->amount - $money->amount();
+        $newAmount = $this->amount - $amount;
+
         if ($newAmount < 0) {
             throw new InvalidArgumentException('Insufficient balance.');
         }

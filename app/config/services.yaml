@@ -27,5 +27,10 @@ services:
     App\Wallet\Domain\ValueObject\WalletId:
         autowire: false
         autoconfigure: false
+
+    App\VendingMachine\Infrastructure\Controller\VendingMachineController:
+        tags: [ 'controller.service_arguments' ]
+        public: true
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

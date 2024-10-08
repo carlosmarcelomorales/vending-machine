@@ -7,3 +7,8 @@ RefundMoney:
     path: /refund-money
     controller: App\Wallet\Infrastructure\Controller\WalletRefundMoneyController::refundMoney
     methods: POST
+
+SellItem:
+    path: /sell-item
+    controller: App\VendingMachine\Infrastructure\Controller\VendingMachineController::sellItem
+    methods: GET

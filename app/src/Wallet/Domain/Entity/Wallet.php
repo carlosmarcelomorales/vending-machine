@@ -37,4 +37,11 @@ class Wallet
     {
         return new self($this->walletId(), new Balance(0));
     }
+
+    public function subtract(float $price): Wallet
+    {
+        $newBalance = $this->balance->subtract($price);
+
+        return new self($this->walletId, $newBalance);
+    }
 }
